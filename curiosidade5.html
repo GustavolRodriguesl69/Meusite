@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>💡 Por que o disco rígido fica cheio tão rápido?</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>💾 Por que o disco rígido fica cheio tão rápido?</h1>
+    <p class="subtitulo">Entenda os motivos e como gerenciar seu armazenamento</p>
+    <!-- Botão para alternar entre o modo escuro e claro -->
+    <button id="toggle-dark" title="Modo escuro/claro">🌙</button>
+  </header>
+
+  <main>
+    <article class="card">
+      <h2>📈 Crescimento dos arquivos temporários</h2>
+      <p>O sistema operacional, navegadores e vários programas criam arquivos temporários e caches que, com o tempo, ocupam bastante espaço no disco.</p>
+
+      <h2>🗂️ Acúmulo de arquivos duplicados e esquecidos</h2>
+      <p>Muitas vezes, instalamos programas, fazemos downloads e salvamos arquivos que nunca mais usamos, e eles ficam “escondidos” ocupando espaço.</p>
+
+      <h2>🎞️ Fotos, vídeos e backups automáticos</h2>
+      <p>Apps de celular, serviços de nuvem e até sistemas criam backups e versões antigas que podem ocupar gigabytes sem você perceber.</p>
+
+      <h2>⚙️ Programas pesados e jogos modernos</h2>
+      <p>Softwares atuais e jogos consomem centenas de gigabytes, especialmente com atualizações frequentes e conteúdo extra.</p>
+
+      <h2>💡 Como evitar que o disco fique cheio tão rápido?</h2>
+      <ul>
+        <li>Use ferramentas de limpeza do sistema regularmente.</li>
+        <li>Revise e apague arquivos duplicados.</li>
+        <li>Gerencie o armazenamento do celular e do PC com apps dedicados.</li>
+        <li>Desinstale programas que não usa mais.</li>
+        <li>Considere discos externos ou armazenamento em nuvem.</li>
+      </ul>
+
+      <div style="margin-top: 30px;">
+        <a href="index.html" class="btn">⬅ Voltar para o Blog</a>
+      </div>
+    </article>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 - RodriguesDEV | Segredos do mundo tech</p>
+  </footer>
+
+  <script>
+    // Função para alternar o modo escuro/claro
+    const toggleDark = document.getElementById('toggle-dark');
+    const body = document.body;
+
+    // Aplica o tema salvo no localStorage ao carregar
+    if (localStorage.getItem('tema') === 'dark') {
+      body.classList.add('dark');
+      toggleDark.textContent = '☀️'; // ícone de sol quando está no modo escuro
+    } else {
+      toggleDark.textContent = '🌙'; // ícone de lua quando está no modo claro
+    }
+
+    // Event listener para alternar o tema
+    toggleDark.addEventListener('click', () => {
+      body.classList.toggle('dark');
+      if (body.classList.contains('dark')) {
+        localStorage.setItem('tema', 'dark');
+        toggleDark.textContent = '☀️'; // Troca para ícone de sol no tema escuro
+      } else {
+        localStorage.setItem('tema', 'light');
+        toggleDark.textContent = '🌙'; // Troca para ícone de lua no tema claro
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>O que o antivírus não detecta?</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>🛡️ O que o antivírus não detecta?</h1>
+    <p class="subtitulo">Você está mais vulnerável do que imagina</p>
+    <!-- Botão para alternar tema -->
+    <button id="toggle-dark" title="Modo escuro/claro" style="position: absolute; top: 1rem; right: 1rem; font-size: 1.5rem; background: transparent; border: none; cursor: pointer;">🌙</button>
+  </header>
+
+  <main>
+    <article class="card">
+      <h2>👀 A falsa sensação de segurança</h2>
+      <p>Ter um antivírus instalado não significa proteção total. Muitos malwares modernos são invisíveis para mecanismos tradicionais de detecção.</p>
+
+      <h2>🐛 Malware sem arquivos (fileless)</h2>
+      <p>Esses vírus se escondem na memória RAM e nunca tocam o disco rígido. Por isso, passam despercebidos pela maioria dos antivírus.</p>
+
+      <h2>📬 Phishing e engenharia social</h2>
+      <p>Seu antivírus não pode evitar que você caia em um golpe de phishing (como um e-mail falso do banco). Isso depende de você, não do software.</p>
+
+      <h2>🧪 Softwares piratas e keygens</h2>
+      <p>Muitos desses arquivos vêm com trojans que ficam adormecidos, aguardando comandos do invasor. Mesmo "não detectados", são perigosos.</p>
+
+      <h2>💡 Como se proteger de verdade</h2>
+      <ul>
+        <li>Mantenha o sistema e os navegadores atualizados</li>
+        <li>Evite sites e downloads suspeitos</li>
+        <li>Use autenticação em dois fatores sempre que possível</li>
+        <li>Desconfie de e-mails com urgência ou erros de português</li>
+        <li>Use uma solução de segurança com firewall e anti-phishing</li>
+      </ul>
+
+      <h2>🔎 Curiosidades assustadoras</h2>
+      <ul>
+        <li>Alguns vírus se autodestroem ao detectar ambiente de análise</li>
+        <li>Vírus podem se esconder em firmware de dispositivos USB</li>
+        <li>Existem malwares que funcionam apenas em horários específicos</li>
+      </ul>
+
+      <h2>🖼️ Imagem informativa</h2>
+      <img src="https://www.kaspersky.com/content/en-global/images/repository/isc/2021/antivirus.jpg" alt="Antivírus nem sempre detecta tudo" style="width:100%; border-radius:10px; margin-top:10px;">
+
+      <div style="margin-top: 30px;">
+        <a href="index.html" class="btn">⬅ Voltar para o Blog</a>
+      </div>
+    </article>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 - RodriguesDEV | Informação é sua maior proteção</p>
+  </footer>
+
+  <script>
+    // Ao carregar a página, aplica o tema salvo no localStorage
+    if (localStorage.getItem('theme') === 'dark') {
+      document.body.classList.add('dark');
+    }
+
+    // Função para atualizar o ícone do tema
+    function updateThemeIcon() {
+      const icon = document.getElementById('toggle-dark');
+      if (document.body.classList.contains('dark')) {
+        icon.textContent = '☀️'; // sol para sair do dark
+      } else {
+        icon.textContent = '🌙'; // lua para entrar no dark
+      }
+    }
+
+    // Atualiza o ícone inicialmente
+    updateThemeIcon();
+
+    // Alterna o tema ao clicar no botão
+    document.getElementById('toggle-dark').addEventListener('click', () => {
+      document.body.classList.toggle('dark');
+      const theme = document.body.classList.contains('dark') ? 'dark' : 'light';
+      localStorage.setItem('theme', theme);
+      updateThemeIcon();
+    });
+  </script>
+</body>
+</html>

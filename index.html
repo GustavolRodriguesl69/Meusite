@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>💻 Segredos dos Computadores</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" type="image/x-icon" href="favicon.ico" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;700&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/your-fontawesome-key.js" crossorigin="anonymous"></script>
+</head>
+<body>
+  
+  <header>
+    <div class="container">
+      <h1>💻 Segredos dos Computadores</h1>
+      <p class="subtitulo">Descubra o que ninguém te conta sobre tecnologia</p>
+      <input type="text" id="search" placeholder="🔍 Buscar curiosidades...">
+      <div class="categorias">
+        <button onclick="filtrarCategoria('todas')">Todas</button>
+        <button onclick="filtrarCategoria('hardware')">Hardware</button>
+        <button onclick="filtrarCategoria('seguranca')">Segurança</button>
+        <button onclick="filtrarCategoria('performance')">Performance</button>
+      </div>
+      <button id="toggle-dark" title="Modo escuro/claro">🌙</button>
+    </div>
+  </header>
+
+  <main>
+    <section id="blog-container" class="grid"></section>
+  </main>
+
+  <button id="voltar-topo" title="Voltar ao topo">⬆️</button>
+
+  <footer>
+    <p>&copy; 2025 - RodriguesDEV 🚀 | Todos os direitos reservados</p>
+  </footer>
+
+  <script>
+    const artigos = [
+      {
+        titulo: "🧠 O que é realmente a memória RAM?",
+        resumo: "Você sabia que a RAM não guarda nada depois que o PC desliga? Ela é a chave da velocidade...",
+        link: "curiosidade1.html",
+        categoria: "hardware"
+      },
+      {
+        titulo: "🐢 Por que seu PC fica mais lento com o tempo?",
+        resumo: "É excesso de programas, arquivos escondidos e falta de manutenção.",
+        link: "curiosidade2.html",
+        categoria: "performance"
+      },
+      {
+        titulo: "🛡️ O que o antivírus não quer que você saiba",
+        resumo: "Eles não detectam tudo. Descubra quais ameaças passam despercebidas.",
+        link: "curiosidade3.html",
+        categoria: "seguranca"
+      },
+      {
+       titulo: "🔥 Por que o processador esquenta e como evitar??",
+       resumo: "Entenda os motivos e como resolver os problemas com o seu computador.",
+       link: "curiosidade4.html"
+      },
+      {
+       titulo: "💡 Por que o disco rígido fica cheio tão rápido?",
+       resumo: "Entenda os motivos e como gerenciar seu armazenamento para evitar surpresas desagradáveis.",
+       link: "curiosidade5.html"
+      },
+      { 
+       titulo: "🔐 O que é phishing e como se proteger?",
+       resumo: "Aprenda a identificar golpes online e manter seus dados seguros contra ataques de phishing.",
+       link: "curiosidade6.html"
+      },
+      {
+       titulo: "⚡ Como funciona o SSD e por que é mais rápido que o HD?",
+       resumo: "Entenda a tecnologia dos SSDs e como ela melhora o desempenho do seu computador.",
+       link: "curiosidade7.html"
+      },
+      {
+       titulo: "⚙️ O que é overclock e quais os riscos?",
+       resumo: "Saiba como funciona o overclock e os cuidados para evitar danos ao seu computador.",
+       link: "curiosidade8.html"
+      },
+      {
+       titulo: "🔄 Por que reiniciar o computador resolve tantos problemas?",
+       resumo: "Descubra como o simples ato de reiniciar resolve falhas e melhora o desempenho.",
+       link: "curiosidade9.html"
+      }
+    ];
+  
+    const container = document.getElementById('blog-container');
+    const search = document.getElementById('search');
+
+    function renderArtigos(filtrados = artigos) {
+      container.innerHTML = "";
+      filtrados.forEach(artigo => {
+        const card = document.createElement('article');
+        card.classList.add('card');
+        card.setAttribute("data-categoria", artigo.categoria);
+
+        card.innerHTML = `
+          <h2>${artigo.titulo}</h2>
+          <p>${artigo.resumo}</p>
+          <a href="${artigo.link}" class="btn">Leia Mais</a>
+        `;
+        container.appendChild(card);
+      });
+    }
+
+    search.addEventListener("input", () => {
+      const termo = search.value.toLowerCase();
+      const filtrados = artigos.filter(a => a.titulo.toLowerCase().includes(termo) || a.resumo.toLowerCase().includes(termo));
+      renderArtigos(filtrados);
+    });
+
+    function filtrarCategoria(cat) {
+      if (cat === "todas") return renderArtigos();
+      const filtrados = artigos.filter(a => a.categoria === cat);
+      renderArtigos(filtrados);
+    }
+
+    renderArtigos();
+
+    // === Dark Mode com persistência ===
+    const toggleDark = document.getElementById('toggle-dark');
+    const body = document.body;
+
+    // Aplica o tema salvo no localStorage ao carregar
+    if (localStorage.getItem('tema') === 'dark') {
+      body.classList.add('dark');
+      toggleDark.textContent = '☀️'; // ícone de sol quando está no modo escuro
+    } else {
+      toggleDark.textContent = '🌙'; // ícone de lua quando está no modo claro
+    }
+
+    toggleDark.addEventListener('click', () => {
+      body.classList.toggle('dark');
+      if (body.classList.contains('dark')) {
+        localStorage.setItem('tema', 'dark');
+        toggleDark.textContent = '☀️';
+      } else {
+        localStorage.setItem('tema', 'light');
+        toggleDark.textContent = '🌙';
+      }
+    });
+
+    // Botão Voltar ao Topo
+    const voltarTopo = document.getElementById('voltar-topo');
+    window.addEventListener('scroll', () => {
+      voltarTopo.style.display = window.scrollY > 300 ? 'block' : 'none';
+    });
+    voltarTopo.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+  </script>
+</body>
+</html>

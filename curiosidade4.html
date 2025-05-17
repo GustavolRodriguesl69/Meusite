@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Por que o processador esquenta e como evitar?</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>🔥 Por que o processador esquenta e como evitar?</h1>
+    <p class="subtitulo">Entenda o funcionamento e cuide do seu PC</p>
+    <!-- Botão para alternar tema -->
+    <button id="toggle-dark" title="Modo escuro/claro" style="position: absolute; top: 1rem; right: 1rem; font-size: 1.5rem; background: transparent; border: none; cursor: pointer;">🌙</button>
+  </header>
+
+  <main>
+    <article class="card">
+      <h2>💡 Por que o processador esquenta?</h2>
+      <p>O processador é o “cérebro” do computador, responsável por executar milhares de cálculos por segundo. Esse trabalho intenso gera calor como efeito colateral natural da energia elétrica que passa pelos seus circuitos.</p>
+
+      <h2>🌡️ O que acontece quando esquenta demais?</h2>
+      <p>Temperaturas elevadas podem diminuir o desempenho, causar travamentos e até danos permanentes ao hardware, como derretimento de soldas ou falha de componentes.</p>
+
+      <h2>❄️ Como o computador controla a temperatura?</h2>
+      <p>Ventoinhas, dissipadores de calor e sistemas de refrigeração líquida são usados para dissipar o calor gerado. Os processadores modernos também têm sensores para reduzir o clock e evitar superaquecimento.</p>
+
+      <h2>🛠️ Dicas para evitar superaquecimento</h2>
+      <ul>
+        <li>Mantenha as ventoinhas limpas e funcionando bem.</li>
+        <li>Use o computador em ambientes ventilados.</li>
+        <li>Evite usar o notebook no colo ou superfícies macias.</li>
+        <li>Troque a pasta térmica do processador a cada 2 anos.</li>
+        <li>Considere um cooler externo para notebooks gamers.</li>
+      </ul>
+
+      <h2>🔎 Curiosidades</h2>
+      <ul>
+        <li>Alguns processadores ultrapassam 100°C antes de desligar para se proteger.</li>
+        <li>O overclocking aumenta o calor gerado e pode diminuir a vida útil do processador.</li>
+        <li>Computadores muito antigos usavam refrigeradores a água — hoje é comum em PCs de alta performance.</li>
+      </ul>
+
+      <div style="margin-top: 30px;">
+        <a href="index.html" class="btn">⬅ Voltar para o Blog</a>
+      </div>
+    </article>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 - RodriguesDEV | Segredos do mundo tech</p>
+  </footer>
+
+  <script>
+    // Ao carregar a página, aplica o tema salvo no localStorage
+    if (localStorage.getItem('theme') === 'dark') {
+      document.body.classList.add('dark');
+    }
+
+    // Função para atualizar o ícone do tema
+    function updateThemeIcon() {
+      const icon = document.getElementById('toggle-dark');
+      if (document.body.classList.contains('dark')) {
+        icon.textContent = '☀️'; // sol para sair do dark
+      } else {
+        icon.textContent = '🌙'; // lua para entrar no dark
+      }
+    }
+
+    // Atualiza o ícone inicialmente
+    updateThemeIcon();
+
+    // Alterna o tema ao clicar no botão
+    document.getElementById('toggle-dark').addEventListener('click', () => {
+      document.body.classList.toggle('dark');
+      const theme = document.body.classList.contains('dark') ? 'dark' : 'light';
+      localStorage.setItem('theme', theme);
+      updateThemeIcon();
+    });
+  </script>
+</body>
+</html>

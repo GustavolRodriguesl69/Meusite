@@ -1,0 +1,212 @@
+/* Estilo geral */
+body {
+  font-family: 'Rubik', sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #b4abab;
+  color: #333;
+  transition: background 0.3s, color 0.3s;
+}
+
+header {
+  background: #0078D4;
+  color: white;
+  padding: 2rem;
+  text-align: center;
+}
+
+.subtitulo {
+  font-size: 1.2rem;
+}
+
+input#search {
+  margin-top: 1rem;
+  padding: 0.5rem;
+  border-radius: 5px;
+  border: none;
+  width: 90%;
+  max-width: 400px;
+}
+
+.categorias {
+  margin: 1rem 0;
+}
+
+.categorias button {
+  margin: 0 0.5rem;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 10px;
+  background: white;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.categorias button:hover {
+  background: #ddd;
+}
+
+#toggle-dark {
+  position: absolute;
+  right: 1rem;
+  top: 1rem;
+  background: transparent;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+/* Grid com 3 colunas fixas */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 colunas fixas */
+  gap: 1.5rem;
+  padding: 2rem;
+}
+
+/* Estilo dos cards */
+.card {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+}
+
+.card h2 {
+  margin-top: 0;
+}
+
+.card .btn {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  background: #7E57C2;
+  color: white;
+  text-decoration: none;
+  border-radius: 10px;
+  transition: background 0.3s, box-shadow 0.3s;
+  box-shadow: 0 0 8px rgba(179, 136, 255, 0.3); /* Neon suave */
+}
+
+.card .btn:hover {
+  background: #5E35B1;
+  box-shadow: 0 0 12px rgba(179, 136, 255, 0.5), 0 0 20px rgba(179, 136, 255, 0.3);
+}
+
+#voltar-topo {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background: #7E57C2;
+  color: white;
+  border: none;
+  padding: 0.7rem;
+  border-radius: 50%;
+  display: none;
+  cursor: pointer;
+  font-size: 1.3rem;
+  box-shadow: 0 0 8px rgba(179, 136, 255, 0.3); /* Neon suave */
+  z-index: 999;
+}
+
+#voltar-topo:hover {
+  box-shadow: 0 0 12px rgba(179, 136, 255, 0.6), 0 0 18px rgba(179, 136, 255, 0.4);
+}
+
+footer {
+  text-align: center;
+  padding: 2rem;
+  background: #222;
+  color: #aaa;
+}
+
+img {
+  max-width: 600px;
+  width: 100%;
+  height: auto;
+  display: block;
+  margin: 20px auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+}
+
+/* --------------------------- */
+/*         DARK THEME          */
+/* --------------------------- */
+
+body.dark {
+  background: #121212;
+  color: #E0E0E0;
+  transition: background 0.3s, color 0.3s;
+}
+
+body.dark header {
+  background: #1f1f1f;
+  color: #ffffff;
+}
+
+body.dark .categorias button {
+  background: #2c2c2c;
+  color: #f0f0f0;
+  border: 1px solid #444;
+}
+
+body.dark .categorias button:hover {
+  background: #3a3a3a;
+  color: #ffffff;
+}
+
+body.dark .card {
+  background: #1e1e1e;
+  color: #e0e0e0;
+  border: 1px solid #333;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.6);
+}
+
+body.dark .card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.8);
+}
+
+body.dark .card .btn {
+  background: #7E57C2;
+  color: white;
+  transition: background 0.3s, box-shadow 0.3s;
+  box-shadow: 0 0 10px rgba(179, 136, 255, 0.4);
+}
+
+body.dark .card .btn:hover {
+  background: #5E35B1;
+  box-shadow: 0 0 15px rgba(179, 136, 255, 0.7), 0 0 25px rgba(179, 136, 255, 0.3);
+}
+
+body.dark input#search {
+  background: #2b2b2b;
+  color: #e0e0e0;
+  border: 1px solid #444;
+}
+
+body.dark #toggle-dark {
+  color: #ccc;
+}
+
+body.dark #voltar-topo {
+  background: #7E57C2;
+  color: #fff;
+  box-shadow: 0 0 10px rgba(179, 136, 255, 0.4);
+}
+
+body.dark #voltar-topo:hover {
+  box-shadow: 0 0 18px rgba(179, 136, 255, 0.6), 0 0 28px rgba(179, 136, 255, 0.3);
+}
+
+body.dark footer {
+  background: #1a1a1a;
+  color: #888;
+}

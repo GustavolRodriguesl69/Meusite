@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>⚙️ O que é overclock e quais os riscos?</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>⚙️ O que é overclock e quais os riscos?</h1>
+    <p class="subtitulo">Entenda essa prática de acelerar seu hardware</p>
+    <!-- Botão para alternar entre o modo escuro e claro -->
+    <button id="toggle-dark" title="Modo escuro/claro">🌙</button>
+  </header>
+
+  <main>
+    <article class="card">
+      <h2>🚀 O que é overclock?</h2>
+      <p>Overclock é o ato de aumentar a velocidade de um componente, como CPU ou GPU, para obter desempenho maior que o especificado pelo fabricante.</p>
+
+      <h2>🔥 Riscos envolvidos</h2>
+      <p>Temperaturas altas, instabilidade do sistema, diminuição da vida útil do hardware e perda de garantia são alguns dos riscos ao fazer overclock.</p>
+
+      <h2>❄️ Como fazer com segurança</h2>
+      <p>Use boas soluções de refrigeração, teste a estabilidade, aumente os clocks gradualmente e monitore as temperaturas.</p>
+
+      <h2>💡 Vale a pena?</h2>
+      <p>Para usuários avançados que querem extrair mais do hardware, pode ser útil. Mas para a maioria, o risco não compensa.</p>
+
+      <div style="margin-top: 30px;">
+        <a href="index.html" class="btn">⬅ Voltar para o Blog</a>
+      </div>
+    </article>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 - RodriguesDEV | Segredos do mundo tech</p>
+  </footer>
+
+  <script>
+    // Função para alternar o modo escuro/claro
+    const toggleDark = document.getElementById('toggle-dark');
+    const body = document.body;
+
+    // Aplica o tema salvo no localStorage ao carregar
+    if (localStorage.getItem('tema') === 'dark') {
+      body.classList.add('dark');
+      toggleDark.textContent = '☀️'; // ícone de sol quando está no modo escuro
+    } else {
+      toggleDark.textContent = '🌙'; // ícone de lua quando está no modo claro
+    }
+
+    // Event listener para alternar o tema
+    toggleDark.addEventListener('click', () => {
+      body.classList.toggle('dark');
+      if (body.classList.contains('dark')) {
+        localStorage.setItem('tema', 'dark');
+        toggleDark.textContent = '☀️'; // Troca para ícone de sol no tema escuro
+      } else {
+        localStorage.setItem('tema', 'light');
+        toggleDark.textContent = '🌙'; // Troca para ícone de lua no tema claro
+      }
+    });
+  </script>
+</body>
+</html>

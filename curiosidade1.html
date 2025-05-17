@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>O que é realmente a memória RAM?</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>🧠 O que é realmente a memória RAM?</h1>
+    <p class="subtitulo">A memória que não armazena, mas acelera tudo</p>
+    <!-- Botão para alternar tema -->
+    <button id="toggle-dark" title="Modo escuro/claro" style="position: absolute; top: 1rem; right: 1rem; font-size: 1.5rem; background: transparent; border: none; cursor: pointer;">🌙</button>
+  </header>
+
+  <main>
+    <article class="card">
+      <h2>📌 O que é a RAM?</h2>
+      <p>A RAM (Memória de Acesso Aleatório) é como a mesa de trabalho do computador. É nela que os dados dos programas abertos ficam temporariamente armazenados para acesso rápido. Quando você abre o navegador, um jogo ou até o bloco de notas, o sistema joga isso para a RAM para que tudo funcione com agilidade.</p>
+
+      <h2>⚙️ Diferença entre RAM e armazenamento (HD/SSD)</h2>
+      <p>Enquanto o HD ou SSD são como “armários” que guardam tudo permanentemente, a RAM só guarda informações enquanto o computador está ligado. Desligou? Tudo some. Isso é essencial para que o sistema funcione de forma rápida e leve.</p>
+
+      <h2>🚀 Por que mais RAM deixa o PC mais rápido?</h2>
+      <p>Com mais RAM, o sistema pode manter mais programas abertos ao mesmo tempo sem precisar usar a memória virtual (parte do HD usada como RAM). Isso evita lentidão, travamentos e aumenta a vida útil do seu SSD.</p>
+
+      <h2>💡 Curiosidades que você provavelmente não sabia:</h2>
+      <ul>
+        <li>Alguns vírus avançados se escondem na RAM para evitar detecção.</li>
+        <li>Hackers usam técnicas chamadas "fileless malware" que atuam apenas na RAM.</li>
+        <li>Você pode aumentar a RAM de um desktop facilmente, mas em muitos notebooks ela é soldada e não pode ser expandida.</li>
+      </ul>
+
+      <h2>🖼️ Exemplo visual</h2>
+      <p>Aqui está uma imagem simples para ilustrar a diferença:</p>
+      <img src="img/memoriaram.jpeg" alt="Módulo de memória RAM" style="width:100%; border-radius: 10px; margin-top:10px;">
+
+      <div style="margin-top: 30px;">
+        <a href="index.html" class="btn" style="text-decoration:none;">⬅ Voltar para o Blog</a>
+      </div>
+    </article>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 - RodriguesDEV | Descubra os segredos do seu computador</p>
+  </footer>
+
+  <script>
+    // Ao carregar a página, aplica o tema salvo no localStorage
+    if (localStorage.getItem('theme') === 'dark') {
+      document.body.classList.add('dark');
+    }
+
+    // Função para atualizar o ícone do tema
+    function updateThemeIcon() {
+      const icon = document.getElementById('toggle-dark');
+      if (document.body.classList.contains('dark')) {
+        icon.textContent = '☀️'; // sol para sair do dark
+      } else {
+        icon.textContent = '🌙'; // lua para entrar no dark
+      }
+    }
+
+    // Atualiza o ícone inicialmente
+    updateThemeIcon();
+
+    // Alterna o tema ao clicar no botão
+    document.getElementById('toggle-dark').addEventListener('click', () => {
+      document.body.classList.toggle('dark');
+      const theme = document.body.classList.contains('dark') ? 'dark' : 'light';
+      localStorage.setItem('theme', theme);
+      updateThemeIcon();
+    });
+  </script>
+</body>
+</html>

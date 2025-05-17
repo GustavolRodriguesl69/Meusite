@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Por que computadores ficam lentos com o tempo?</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>🐢 Por que computadores ficam lentos com o tempo?</h1>
+    <p class="subtitulo">Não é idade — é falta de manutenção digital</p>
+    <!-- Botão para alternar tema -->
+    <button id="toggle-dark" title="Modo escuro/claro" style="position: absolute; top: 1rem; right: 1rem; font-size: 1.5rem; background: transparent; border: none; cursor: pointer;">🌙</button>
+  </header>
+
+  <main>
+    <article class="card">
+      <h2>🧩 O acúmulo invisível</h2>
+      <p>Com o tempo, seu computador acumula arquivos temporários, programas desnecessários, atualizações mal otimizadas e até erros no registro do sistema. Tudo isso gera lentidão — mesmo sem você ver.</p>
+
+      <h2>📦 Programas iniciando junto com o sistema</h2>
+      <p>Softwares como antivírus, atualizadores e assistentes virtuais iniciam automaticamente com o sistema, consumindo memória e processamento logo no boot.</p>
+
+      <h2>🔁 Atualizações mal feitas</h2>
+      <p>Algumas atualizações do sistema e de programas não substituem arquivos antigos corretamente. Isso pode causar conflitos, travamentos e perda de desempenho.</p>
+
+      <h2>🧹 Como manter seu PC rápido</h2>
+      <ul>
+        <li>Desinstale programas que não usa</li>
+        <li>Desative inicialização automática desnecessária (Gerenciador de Tarefas)</li>
+        <li>Limpe arquivos temporários regularmente</li>
+        <li>Atualize drivers e o sistema operacional</li>
+        <li>Use SSD (muito mais rápido que HD)</li>
+      </ul>
+
+      <h2>💡 Curiosidades</h2>
+      <ul>
+        <li>Um notebook com HDD pode levar 10x mais tempo para iniciar que com SSD</li>
+        <li>Programas em segundo plano consomem recursos mesmo sem estar abertos</li>
+        <li>Alguns fabricantes colocam *bloatware* (softwares inúteis) de fábrica</li>
+      </ul>
+
+      <h2>🖼️ Exemplo visual</h2>
+      <p>Veja como um SSD pode acelerar drasticamente seu sistema:</p>
+      <img src="img/download.jpg" alt="Comparativo SSD vs HDD" style="width:100%; border-radius:10px; margin-top:10px;">
+      <div style="margin-top: 30px;">
+        <a href="index.html" class="btn">⬅ Voltar para o Blog</a>
+      </div>
+    </article>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 - RodriguesDEV | Mantenha seu PC saudável</p>
+  </footer>
+
+  <script>
+    // Ao carregar a página, aplica o tema salvo no localStorage
+    if (localStorage.getItem('theme') === 'dark') {
+      document.body.classList.add('dark');
+    }
+
+    // Função para atualizar o ícone do tema
+    function updateThemeIcon() {
+      const icon = document.getElementById('toggle-dark');
+      if (document.body.classList.contains('dark')) {
+        icon.textContent = '☀️'; // sol para sair do dark
+      } else {
+        icon.textContent = '🌙'; // lua para entrar no dark
+      }
+    }
+
+    // Atualiza o ícone inicialmente
+    updateThemeIcon();
+
+    // Alterna o tema ao clicar no botão
+    document.getElementById('toggle-dark').addEventListener('click', () => {
+      document.body.classList.toggle('dark');
+      const theme = document.body.classList.contains('dark') ? 'dark' : 'light';
+      localStorage.setItem('theme', theme);
+      updateThemeIcon();
+    });
+  </script>
+</body>
+</html>

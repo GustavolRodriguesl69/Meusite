@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>🔐 O que é phishing e como se proteger?</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>🔐 O que é phishing e como se proteger?</h1>
+    <p class="subtitulo">Saiba identificar ataques e evitar golpes online</p>
+    <!-- Botão para alternar entre o modo escuro e claro -->
+    <button id="toggle-dark" title="Modo escuro/claro">🌙</button>
+  </header>
+
+  <main>
+    <article class="card">
+      <h2>🎣 O que é phishing?</h2>
+      <p>Phishing é uma técnica usada por cibercriminosos para enganar pessoas, fazendo-as revelar informações pessoais, como senhas e dados bancários, através de e-mails, mensagens ou sites falsos.</p>
+
+      <h2>⚠️ Como reconhecer um ataque de phishing?</h2>
+      <ul>
+        <li>Mensagens com urgência exagerada, pedindo ação imediata.</li>
+        <li>Erros de português ou formatação estranha no texto.</li>
+        <li>Links que parecem legítimos, mas levam a sites falsos.</li>
+        <li>Solicitações inesperadas de dados pessoais.</li>
+      </ul>
+
+      <h2>🛡️ Dicas para se proteger</h2>
+      <ul>
+        <li>Não clique em links ou abra anexos suspeitos.</li>
+        <li>Verifique sempre o remetente do e-mail.</li>
+        <li>Use autenticação em duas etapas sempre que possível.</li>
+        <li>Mantenha seu antivírus e sistema operacional atualizados.</li>
+        <li>Se desconfiar, acesse o site oficial digitando o endereço no navegador.</li>
+      </ul>
+
+      <h2>📊 Impactos do phishing</h2>
+      <p>Além de perdas financeiras, ataques de phishing podem comprometer sua identidade digital, causando danos duradouros à sua segurança e privacidade.</p>
+
+      <div style="margin-top: 30px;">
+        <a href="index.html" class="btn">⬅ Voltar para o Blog</a>
+      </div>
+    </article>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 - RodriguesDEV | Segredos do mundo tech</p>
+  </footer>
+
+  <script>
+    // Função para alternar o modo escuro/claro
+    const toggleDark = document.getElementById('toggle-dark');
+    const body = document.body;
+
+    // Aplica o tema salvo no localStorage ao carregar
+    if (localStorage.getItem('tema') === 'dark') {
+      body.classList.add('dark');
+      toggleDark.textContent = '☀️'; // ícone de sol quando está no modo escuro
+    } else {
+      toggleDark.textContent = '🌙'; // ícone de lua quando está no modo claro
+    }
+
+    // Event listener para alternar o tema
+    toggleDark.addEventListener('click', () => {
+      body.classList.toggle('dark');
+      if (body.classList.contains('dark')) {
+        localStorage.setItem('tema', 'dark');
+        toggleDark.textContent = '☀️'; // Troca para ícone de sol no tema escuro
+      } else {
+        localStorage.setItem('tema', 'light');
+        toggleDark.textContent = '🌙'; // Troca para ícone de lua no tema claro
+      }
+    });
+  </script>
+</body>
+</html>
